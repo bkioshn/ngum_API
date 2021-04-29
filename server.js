@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const app = express();
+var fileupload = require("express-fileupload");
 
 global.__basedir = __dirname;
 
@@ -9,6 +10,9 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json())
+app.use(fileupload());
+
 
 const initRoutes = require("./src/routes");
 
